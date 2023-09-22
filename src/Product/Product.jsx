@@ -1,7 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Product = ({ product }) => {
   const { id, title, price, images } = product;
+
+  const navigate = useNavigate();
+
+  const handleNavigate = () =>{
+    const user = false;
+    if(user){
+      navigate(`/Products/${id}`);
+    }
+    else{
+      navigate(`/`);
+    }
+  }
   return (
     <div>
       <div className="w-full h-96 max-w-sm bg-white border border-gray-200 rounded-lg shadow">
@@ -69,11 +81,9 @@ const Product = ({ product }) => {
           <div className="flex items-center justify-between">
             <span className="text-3xl font-bold">${price}</span>
 
-            <Link to={`/Products/${id}`}>
-              <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              <button onClick={handleNavigate} className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 View Details
               </button>
-            </Link>
           </div>
         </div>
       </div>
