@@ -1,9 +1,12 @@
 import MainLayout from "../Layout/MainLayout";
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../Pages/Home/Home";
-import Products from "../Pages/Products/Products";
 import Dashboard from "../Dashboard/Dashboard";
+import Products from "../Pages/Products/Products";
 import ProductDetails from "../ProductDetails/ProductDetails";
+import DashboardLayout from "../Layout/DashboardLayout";
+import Profile from "../Pages/Profile/Profile";
+import EditProfile from "../Pages/EditProfile/EditProfile";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +33,21 @@ const router = createBrowserRouter([
 
       {
         path: "/Dashboard",
-        element: <Dashboard></Dashboard>
+        element: <DashboardLayout></DashboardLayout>,
+        children : [
+            {
+                path : "/Dashboard",
+                element : <Dashboard></Dashboard>
+            },
+            {
+                path : "/Dashboard/profile",
+                element : <Profile></Profile>
+            },
+            {
+                path : "/Dashboard/editProfile",
+                element : <EditProfile></EditProfile>
+            },
+        ]
       },
     ]
   }

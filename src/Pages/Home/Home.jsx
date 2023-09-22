@@ -1,9 +1,12 @@
 
-
 const Home = () => {
     return (
-        <div>
-            <h2 className="text-5xl font-bold">Home</h2>
+        <div className="mt-56">
+            <h2 className="text-6xl font-bold text-center">Please 
+            <span className="text-red-500"> Click </span> 
+            the 
+            <span className="text-purple-500"> Product </span> 
+             button to see Products</h2>
         </div>
     );
 };
