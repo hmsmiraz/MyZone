@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Product = ({ product }) => {
   const { id, title, price, images } = product;
@@ -6,7 +6,7 @@ const Product = ({ product }) => {
   const navigate = useNavigate();
 
   const handleNavigate = () =>{
-    const user = false;
+    const user = true;
     if(user){
       navigate(`/Products/${id}`);
     }
